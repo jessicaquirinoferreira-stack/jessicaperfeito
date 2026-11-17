@@ -1,0 +1,6 @@
+{
+  "name": "Jéssica Perfeito | Imóveis",
+  "description": "Site público institucional imobiliário de Jéssica Perfeito (CRECI 78861) no Rio de Janeiro — Porto Maravilha, Residencial Heitor dos Prazeres, imóveis, empreendimentos e atendimento próximo para conquista do seu novo lar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,281 @@
+{
+  "entities": {
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Configurações globais de marca, cores, textos institucionais, SEO e integrações do site público.",
+      "type": "object",
+      "properties": {
+        "brandName": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "brandMonogram": { "type": "string", "minLength": 1, "maxLength": 8 },
+        "tagline": { "type": "string", "minLength": 4, "maxLength": 200 },
+        "creci": { "type": "string", "minLength": 2, "maxLength": 40 },
+        "whatsappUrl": { "type": "string", "maxLength": 300 },
+        "whatsappNumber": { "type": "string", "maxLength": 40 },
+        "instagramUrl": { "type": "string", "maxLength": 300 },
+        "instagramHandle": { "type": "string", "maxLength": 80 },
+        "primaryColor": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$", "maxLength": 7 },
+        "accentColor": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$", "maxLength": 7 },
+        "bgColor": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$", "maxLength": 7 },
+        "logoUrl": { "type": "string", "maxLength": 2000 },
+        "heroTitle": { "type": "string", "minLength": 4, "maxLength": 180 },
+        "heroSubtitle": { "type": "string", "minLength": 10, "maxLength": 400 },
+        "heroImage": { "type": "string", "maxLength": 2000 },
+        "footerText": { "type": "string", "maxLength": 400 },
+        "seoTitle": { "type": "string", "maxLength": 160 },
+        "seoDescription": { "type": "string", "maxLength": 320 },
+        "ga4Id": { "type": "string", "maxLength": 60 },
+        "gtmId": { "type": "string", "maxLength": 60 },
+        "searchConsoleMeta": { "type": "string", "maxLength": 200 },
+        "adsId": { "type": "string", "maxLength": 60 },
+        "privacyNotice": { "type": "string", "maxLength": 2000 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["brandName", "brandMonogram", "tagline", "creci"]
+    },
+    "ProfessionalProfile": {
+      "title": "ProfessionalProfile",
+      "description": "Perfil profissional da corretora Jéssica Perfeito (CRECI 78861).",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "displayName": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "creci": { "type": "string", "minLength": 2, "maxLength": 40 },
+        "bio": { "type": "string", "minLength": 10, "maxLength": 2500 },
+        "shortBio": { "type": "string", "maxLength": 400 },
+        "photoUrl": { "type": "string", "maxLength": 2000 },
+        "instagramHandle": { "type": "string", "maxLength": 80 },
+        "instagramPostsCount": { "type": "number" },
+        "instagramFollowersCount": { "type": "number" },
+        "regionFocus": { "type": "string", "maxLength": 200 },
+        "quote": { "type": "string", "maxLength": 300 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "displayName", "creci", "bio"]
+    },
+    "Property": {
+      "title": "Property",
+      "description": "Imóvel divulgado no catálogo público da Jéssica Perfeito | Imóveis.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "minLength": 3, "maxLength": 160 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$", "minLength": 3, "maxLength": 160 },
+        "code": { "type": "string", "minLength": 2, "maxLength": 40 },
+        "businessType": { "type": "string", "enum": ["Venda", "Lançamento", "Investimento"] },
+        "propertyType": { "type": "string", "enum": ["Apartamento", "Studio", "Cobertura", "Casa"] },
+        "region": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "developmentId": { "type": "string", "maxLength": 128 },
+        "developmentName": { "type": "string", "maxLength": 160 },
+        "priceDisplay": { "type": "string", "maxLength": 100 },
+        "priceValue": { "type": "number" },
+        "downPaymentDisplay": { "type": "string", "maxLength": 100 },
+        "downPaymentValue": { "type": "number" },
+        "installmentDisplay": { "type": "string", "maxLength": 100 },
+        "installmentValue": { "type": "number" },
+        "bedroomsDisplay": { "type": "string", "maxLength": 80 },
+        "areaDisplay": { "type": "string", "maxLength": 80 },
+        "parkingDisplay": { "type": "string", "maxLength": 80 },
+        "condoDisplay": { "type": "string", "maxLength": 80 },
+        "iptuDisplay": { "type": "string", "maxLength": 80 },
+        "availabilityStatus": { "type": "string", "maxLength": 80 },
+        "isConfirmationRequired": { "type": "boolean" },
+        "featured": { "type": "boolean" },
+        "published": { "type": "boolean" },
+        "coverImage": { "type": "string", "maxLength": 2000 },
+        "gallery": { "type": "array" },
+        "description": { "type": "string", "maxLength": 4000 },
+        "features": { "type": "array" },
+        "seoTitle": { "type": "string", "maxLength": 160 },
+        "seoDescription": { "type": "string", "maxLength": 320 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "slug", "code", "businessType", "propertyType", "region", "published"]
+    },
+    "Empreendimento": {
+      "title": "Empreendimento",
+      "description": "Empreendimento imobiliário gerenciado pelo painel administrativo.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 2, "maxLength": 160 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$", "minLength": 2, "maxLength": 160 },
+        "location": { "type": "string", "minLength": 2, "maxLength": 200 },
+        "status": { "type": "string", "maxLength": 80 },
+        "entryCondition": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 4000 },
+        "highlights": { "type": "array" },
+        "coverImage": { "type": "string", "maxLength": 2000 },
+        "gallery": { "type": "array" },
+        "featured": { "type": "boolean" },
+        "published": { "type": "boolean" },
+        "seoTitle": { "type": "string", "maxLength": 160 },
+        "seoDescription": { "type": "string", "maxLength": 320 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "slug", "location", "status", "published"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "Contato comercial capturado no site público ou landing pages com rastreamento UTM.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "phone": { "type": "string", "minLength": 8, "maxLength": 30 },
+        "email": { "type": "string", "maxLength": 160 },
+        "propertyId": { "type": "string", "maxLength": 128 },
+        "propertyTitle": { "type": "string", "maxLength": 180 },
+        "developmentId": { "type": "string", "maxLength": 128 },
+        "message": { "type": "string", "maxLength": 2000 },
+        "source": { "type": "string", "maxLength": 200 },
+        "utmSource": { "type": "string", "maxLength": 100 },
+        "utmMedium": { "type": "string", "maxLength": 100 },
+        "utmCampaign": { "type": "string", "maxLength": 120 },
+        "utmContent": { "type": "string", "maxLength": 120 },
+        "status": { "type": "string", "enum": ["Novo", "Em atendimento", "Visitado", "Arquivado"] },
+        "notes": { "type": "string", "maxLength": 2000 },
+        "lgpdConsent": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "phone", "status", "lgpdConsent"]
+    },
+    "VisitRequest": {
+      "title": "VisitRequest",
+      "description": "Solicitação de agendamento de visita a imóvel ou empreendimento.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "phone": { "type": "string", "minLength": 8, "maxLength": 30 },
+        "email": { "type": "string", "maxLength": 160 },
+        "propertyId": { "type": "string", "maxLength": 128 },
+        "propertyTitle": { "type": "string", "maxLength": 180 },
+        "preferredDate": { "type": "string", "maxLength": 40 },
+        "preferredTime": { "type": "string", "maxLength": 40 },
+        "message": { "type": "string", "maxLength": 2000 },
+        "source": { "type": "string", "maxLength": 200 },
+        "utmSource": { "type": "string", "maxLength": 100 },
+        "utmMedium": { "type": "string", "maxLength": 100 },
+        "utmCampaign": { "type": "string", "maxLength": 120 },
+        "status": { "type": "string", "enum": ["Pendente", "Confirmada", "Realizada", "Cancelada"] },
+        "notes": { "type": "string", "maxLength": 2000 },
+        "lgpdConsent": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "phone", "status", "lgpdConsent"]
+    },
+    "LandingPage": {
+      "title": "LandingPage",
+      "description": "Landing page compartilhável de oportunidade ou campanha, incluindo exatamente uma Landing Page Premium.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "minLength": 3, "maxLength": 160 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$", "minLength": 2, "maxLength": 120 },
+        "routePrefix": { "type": "string", "enum": ["oportunidade", "campanha"] },
+        "isPremiumShowcase": { "type": "boolean" },
+        "targetType": { "type": "string", "enum": ["property", "development", "campaign"] },
+        "targetIds": { "type": "array" },
+        "heroHeadline": { "type": "string", "maxLength": 200 },
+        "heroSubheadline": { "type": "string", "maxLength": 400 },
+        "heroImage": { "type": "string", "maxLength": 2000 },
+        "editorialStory": { "type": "string", "maxLength": 4000 },
+        "conditionHighlight": { "type": "string", "maxLength": 200 },
+        "ctaText": { "type": "string", "maxLength": 80 },
+        "gallery": { "type": "array" },
+        "status": { "type": "string", "enum": ["publicada", "pausada", "rascunho"] },
+        "seoTitle": { "type": "string", "maxLength": 160 },
+        "seoDescription": { "type": "string", "maxLength": 320 },
+        "ogImage": { "type": "string", "maxLength": 2000 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "slug", "routePrefix", "isPremiumShowcase", "status"]
+    },
+    "MediaAsset": {
+      "title": "MediaAsset",
+      "description": "Registro de mídia armazenada via Vercel Blob ou ativo local.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "url": { "type": "string", "minLength": 4, "maxLength": 2000 },
+        "pathname": { "type": "string", "maxLength": 300 },
+        "contentType": { "type": "string", "maxLength": 100 },
+        "size": { "type": "number" },
+        "storageProvider": { "type": "string", "enum": ["vercel-blob", "local-asset", "data-url"] },
+        "uploadedBy": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "url", "storageProvider"]
+    },
+    "AnalyticsEvent": {
+      "title": "AnalyticsEvent",
+      "description": "Evento de visualização ou conversão para o dashboard administrativo.",
+      "type": "object",
+      "properties": {
+        "eventType": { "type": "string", "enum": ["page_view", "property_view", "lp_view", "lead_submit", "visit_submit", "whatsapp_click"] },
+        "path": { "type": "string", "maxLength": 300 },
+        "entityId": { "type": "string", "maxLength": 128 },
+        "entityTitle": { "type": "string", "maxLength": 200 },
+        "utmSource": { "type": "string", "maxLength": 100 },
+        "utmMedium": { "type": "string", "maxLength": 100 },
+        "utmCampaign": { "type": "string", "maxLength": 120 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["eventType", "path"]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Usuário administrador autorizado a gerenciar o site.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "maxLength": 160 },
+        "name": { "type": "string", "maxLength": 120 },
+        "role": { "type": "string", "enum": ["admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/siteSettings/{settingId}": {
+      "schema": { "$ref": "#/entities/SiteSettings" },
+      "description": "Configurações públicas do site (leitura pública, escrita exclusiva para admin)."
+    },
+    "/professionalProfile/{profileId}": {
+      "schema": { "$ref": "#/entities/ProfessionalProfile" },
+      "description": "Perfil institucional da corretora Jéssica Perfeito (leitura pública, escrita exclusiva para admin)."
+    },
+    "/properties/{propertyId}": {
+      "schema": { "$ref": "#/entities/Property" },
+      "description": "Catálogo de imóveis (leitura pública para publicados, CRUD exclusivo para admin)."
+    },
+    "/empreendimentos/{developmentId}": {
+      "schema": { "$ref": "#/entities/Empreendimento" },
+      "description": "Catálogo de empreendimentos (leitura pública para publicados, CRUD exclusivo para admin)."
+    },
+    "/leads/{leadId}": {
+      "schema": { "$ref": "#/entities/Lead" },
+      "description": "Leads comerciais (criação pública validada, leitura e gestão exclusivas para admin)."
+    },
+    "/visitRequests/{visitId}": {
+      "schema": { "$ref": "#/entities/VisitRequest" },
+      "description": "Agendamentos de visita (criação pública validada, leitura e gestão exclusivas para admin)."
+    },
+    "/landingPages/{lpId}": {
+      "schema": { "$ref": "#/entities/LandingPage" },
+      "description": "Landing pages de oportunidade e campanha (leitura pública para publicadas, CRUD exclusivo para admin)."
+    },
+    "/media/{mediaId}": {
+      "schema": { "$ref": "#/entities/MediaAsset" },
+      "description": "Biblioteca de mídia do site (leitura pública, upload e remoção exclusivos para admin)."
+    },
+    "/analytics/{eventId}": {
+      "schema": { "$ref": "#/entities/AnalyticsEvent" },
+      "description": "Eventos de audiência e conversão (criação pública validada, leitura exclusiva para admin)."
+    },
+    "/adminUsers/{uid}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Registro de administradores autorizados."
+    }
+  }
+}
